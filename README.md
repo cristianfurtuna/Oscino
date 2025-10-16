@@ -17,4 +17,4 @@ Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capab
 - [ ] Programare UI<br>
 - [ ] Testare<br>
 - [ ] Elaborare documentație<br>
-- [ ] Realizare prezentare<br>
+- [ ] Realizare prezentare PowerPoint<br>
