@@ -7,6 +7,7 @@ Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capab
 - AC/DC coupling;<br>
 - 0...25V input range using different attenuation stages;<br>
 - transformer for higher input voltages;<br>
+- Windows UI Interface/Python script;<br>
 - timebase.<br>
 ## Elaborare etape
 - [ ] Alegere componente<br>
