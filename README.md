@@ -9,12 +9,12 @@ Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capab
 - transformer for higher input voltages;<br>
 - timebase.<br>
 ## Elaborare etape
-[] Alegere componente<br>
-[] Schemă electrică<br>
-[] Cablaj<br>
-[] Prototip<br>
-[] Programare uC<br>
-[] Programare UI<br>
-[] Testare<br>
-[] Elaborare documentație<br>
-[] Realizare prezentare<br>
+- [ ] Alegere componente<br>
+- [ ] Schemă electrică<br>
+- [ ] Cablaj<br>
+- [ ] Prototip<br>
+- [ ] Programare uC<br>
+- [ ] Programare UI<br>
+- [ ] Testare<br>
+- [ ] Elaborare documentație<br>
+- [ ] Realizare prezentare<br>
