@@ -1,0 +1,34 @@
+ATMEGA2560
+DG212BDJ
+ADUM3160
+
+
+
+Module electronice:
+
+--------conditionare semnal--------------
+-Atenuator de intrare
+-Amplificator de izolare
+-Amplificator de instrumentatie/opamp
+
+--------conversie semnal-----------------
+-ADC
+
+
+--------procesare semnal-----------------
+-ATMEGA2560
+
+
+--------transmisie date------------------
+-uart / USB bridge
+
+
+
+--------alimentare-----------------------
+-5V intern
+-mufă pentru alimentare la baterie?
+
+
+
+--------izolare usb----------------------
+-ADUM3160
