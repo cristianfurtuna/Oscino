@@ -19,3 +19,8 @@ Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capab
 - [ ] Testare<br>
 - [ ] Elaborare documentație<br>
 - [ ] Realizare prezentare PowerPoint<br>
+## Alegerea unui microcontroller potrivit
+- [ ] C8051F120 -> preț: $11.22<br>
+- [ ] STM32H743ZIT6 -> preț: $15.23<br>
+- [ ] MIMXRT1062DVL6B -> preț: $12.00<br>
+- [x] ATMEGA 2560 -> preț: $10.56<br>
