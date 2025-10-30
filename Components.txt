@@ -1,5 +1,4 @@
 ATMEGA2560
-DG212BDJ
 ADUM3160
 
 
@@ -12,7 +11,7 @@ Module electronice:
 -Amplificator de instrumentatie/opamp
 
 --------conversie semnal-----------------
--ADC
+-ADC (ADS 8681)
 
 
 --------procesare semnal-----------------
@@ -20,12 +19,14 @@ Module electronice:
 
 
 --------transmisie date------------------
--uart / USB bridge
+-uart / USB bridge?
 
 
 
 --------alimentare-----------------------
--5V intern
+-5V intern USB-c
+-5V izolare USB-c
+-eFuse TPS2595
 -mufă pentru alimentare la baterie?
 
 
