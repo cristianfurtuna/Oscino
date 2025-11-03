@@ -7,6 +7,7 @@ void SPI_MasterInit(void)
     // Set MOSI and SCK output, all others input
     DDRB = (1 << PB2) | (1 << PB1); // MOSI - PB2, SCK - PB1
     // Enable SPI, Master, set clock rate fck/16
+    PORTB |= (1 << PB0);                           // Keep board in Master mode
     SPCR = (1 << SPE) | (1 << MSTR) | (1 << SPR0); // SPCR - SPI control register
 }
 
