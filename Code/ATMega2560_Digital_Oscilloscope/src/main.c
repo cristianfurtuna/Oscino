@@ -24,7 +24,7 @@ int main(void)
 	GPIO_set_output(D11);		  // D11 as output
 
 	uart_init(MYUBRR);
-	// SPI_MasterInit();
+	SPI_MasterInit();
 	// SPI_SlaveInit();
 
 	PWM_init();
@@ -45,9 +45,9 @@ int main(void)
 		uint16_t raw = ADC_read_pin(A15);
 		uint16_t mv = ADC_to_millivolts(raw, 5000);
 		// Test SPI communication
-		// uint8_t spi_data = SPI_SlaveReceive();
-		// printf("Data received: %u\r\n", spi_data);
-		//_delay_ms(1000);
+		uint16_t spi_data = readADC(0); // read channel 0
+		printf("Data received: %u\r\n", spi_data);
+		_delay_ms(500);
 		printf("A15: %u (≈ %u mV)\r\n", raw, mv);
 		_delay_ms(500);
 		printf("Button state: %d \n", button_pressed);
