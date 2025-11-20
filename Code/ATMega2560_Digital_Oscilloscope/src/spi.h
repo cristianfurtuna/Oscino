@@ -7,6 +7,8 @@ void SPI_MasterInit(void);
 uint8_t SPI_MasterTransmit(uint8_t data);
 void SPI_SlaveInit(void);
 uint8_t SPI_SlaveReceive(void);
-uint16_t readADC(uint8_t channel);
+void readADC_packed(uint8_t channel);
+// uint16_t readADC(uint8_t channel);
+void ADC_pack_flush(void);
 
 #endif

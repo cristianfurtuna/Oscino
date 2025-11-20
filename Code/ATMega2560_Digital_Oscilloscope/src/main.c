@@ -1,4 +1,4 @@
-#define BAUD 115200 // desired BAUD rate
+#define BAUD 2000000UL // desired BAUD rate (was 115200)
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -42,12 +42,23 @@ int main(void)
 		sleep_enable();
 		sleep_cpu();
 		sleep_disable();
-		uint16_t raw = ADC_read_pin(A15);
-		uint16_t mv = ADC_to_millivolts(raw, 5000);
-		// Test SPI communication
-		uint16_t spi_data = readADC(0); // read channel 0
-		printf("Data received: %u\r\n", spi_data);
-		_delay_ms(500);
+		uart_putchar(0xAA, stdout);		  // SYNC BYTE 1
+		uart_putchar(0x55, stdout);		  // SYNC BYTE 2
+		for (uint16_t i = 0; i < 64; i++) // capture 64 samples per batch
+		{
+			readADC_packed(0);
+			//_delay_us(50);
+		}
+		ADC_pack_flush();
+
+		//_delay_ms(500);
+		//   uint16_t raw = ADC_read_pin(A15);
+		//   uint16_t mv = ADC_to_millivolts(raw, 5000);
+		//    Test SPI communication
+		// uint16_t spi_data = readADC(0); // read channel 0
+		// printf("Data received: %u\r\n", spi_data);
+		//_delay_ms(500);
+		/*_delay_ms(500);
 		printf("A15: %u (≈ %u mV)\r\n", raw, mv);
 		_delay_ms(500);
 		printf("Button state: %d \n", button_pressed);
@@ -76,7 +87,7 @@ int main(void)
 			GPIO_set_low(D28);
 			printf("LED off \n");
 			_delay_ms(500);
-		}
+		} */
 	}
 }
 
