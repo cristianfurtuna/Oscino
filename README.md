@@ -10,8 +10,8 @@ Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capab
 - Windows UI Interface/Python script;<br>
 - timebase.<br>
 ## Elaborare etape
-- [ ] Alegere componente<br>
-- [ ] Schemă electrică<br>
+- [x] Alegere componente<br>
+- [x] Schemă electrică<br>
 - [ ] Cablaj<br>
 - [ ] Prototip<br>
 - [ ] Programare uC<br>
