@@ -9536,12 +9536,12 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Relay:SANYOU_SRD_Form_A"
+		(symbol "Relay:G6K-2"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "K"
-				(at 8.89 3.81 0)
+				(at 16.51 3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -9549,8 +9549,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "SANYOU_SRD_Form_A"
-				(at 8.89 1.27 0)
+			(property "Value" "G6K-2"
+				(at 16.51 1.27 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -9558,8 +9558,8 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Relay_THT:Relay_SPST_SANYOU_SRD_Series_Form_A"
-				(at 8.89 -1.27 0)
+			(property "Footprint" ""
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -9568,7 +9568,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "http://www.sanyourelay.ca/public/products/pdf/SRD.pdf"
+			(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6k.pdf"
 				(at 0 0 0)
 				(effects
 					(font
@@ -9577,7 +9577,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Sanyo SRD relay, Single Pole Miniature Power Relay, Closing Contact"
+			(property "Description" "Miniature 2-pole relay, Single-side Stable"
 				(at 0 0 0)
 				(effects
 					(font
@@ -9586,7 +9586,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "Single Pole Relay SPST"
+			(property "ki_keywords" "Miniature Relay Dual Pole DPDT Omron"
 				(at 0 0 0)
 				(effects
 					(font
@@ -9595,7 +9595,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "Relay*SPST*SANYOU*SRD*Series*Form*A*"
+			(property "ki_fp_filters" "Relay*DPDT*Omron*G6K?2*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -9604,24 +9604,20 @@
 					(hide yes)
 				)
 			)
-			(symbol "SANYOU_SRD_Form_A_0_0"
-				(polyline
-					(pts
-						(xy 5.08 5.08) (xy 5.08 2.54) (xy 4.445 3.175) (xy 5.08 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
+			(symbol "G6K-2_0_0"
+				(text "+"
+					(at -9.271 2.921 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
 					)
 				)
 			)
-			(symbol "SANYOU_SRD_Form_A_0_1"
+			(symbol "G6K-2_0_1"
 				(rectangle
-					(start -10.16 5.08)
-					(end 7.62 -5.08)
+					(start -15.24 5.08)
+					(end 15.24 -5.08)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -9631,8 +9627,8 @@
 					)
 				)
 				(rectangle
-					(start -8.255 1.905)
-					(end -1.905 -1.905)
+					(start -13.335 1.905)
+					(end -6.985 -1.905)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -9643,7 +9639,7 @@
 				)
 				(polyline
 					(pts
-						(xy -7.62 -1.905) (xy -2.54 1.905)
+						(xy -12.7 -1.905) (xy -7.62 1.905)
 					)
 					(stroke
 						(width 0.254)
@@ -9655,7 +9651,7 @@
 				)
 				(polyline
 					(pts
-						(xy -5.08 5.08) (xy -5.08 1.905)
+						(xy -10.16 5.08) (xy -10.16 1.905)
 					)
 					(stroke
 						(width 0)
@@ -9667,7 +9663,7 @@
 				)
 				(polyline
 					(pts
-						(xy -5.08 -5.08) (xy -5.08 -1.905)
+						(xy -10.16 -5.08) (xy -10.16 -1.905)
 					)
 					(stroke
 						(width 0)
@@ -9675,6 +9671,66 @@
 					)
 					(fill
 						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -6.985 0) (xy -6.35 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.715 0) (xy -5.08 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.445 0) (xy -3.81 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.175 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 5.08) (xy -2.54 2.54) (xy -1.905 3.175) (xy -2.54 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
 					)
 				)
 				(polyline
@@ -9695,6 +9751,30 @@
 					)
 					(stroke
 						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy -1.905 3.81)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -5.08)
+					)
+					(stroke
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -9727,6 +9807,18 @@
 				)
 				(polyline
 					(pts
+						(xy 2.54 5.08) (xy 2.54 2.54) (xy 1.905 3.175) (xy 2.54 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy 3.175 0) (xy 3.81 0)
 					)
 					(stroke
@@ -9739,7 +9831,67 @@
 				)
 				(polyline
 					(pts
-						(xy 5.08 -2.54) (xy 3.175 3.81)
+						(xy 4.445 0) (xy 5.08 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.715 0) (xy 6.35 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 6.985 0) (xy 7.62 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 5.08) (xy 7.62 2.54) (xy 8.255 3.175) (xy 7.62 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 8.255 0) (xy 8.89 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -2.54) (xy 8.255 3.81)
 					)
 					(stroke
 						(width 0.508)
@@ -9751,7 +9903,19 @@
 				)
 				(polyline
 					(pts
-						(xy 5.08 -2.54) (xy 5.08 -5.08)
+						(xy 10.16 -2.54) (xy 10.16 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 5.08) (xy 12.7 2.54) (xy 12.065 3.175) (xy 12.7 3.81)
 					)
 					(stroke
 						(width 0)
@@ -9762,9 +9926,9 @@
 					)
 				)
 			)
-			(symbol "SANYOU_SRD_Form_A_1_1"
+			(symbol "G6K-2_1_1"
 				(pin passive line
-					(at -5.08 7.62 270)
+					(at -10.16 7.62 270)
 					(length 2.54)
 					(name "~"
 						(effects
@@ -9773,7 +9937,7 @@
 							)
 						)
 					)
-					(number "5"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -9782,7 +9946,25 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 -7.62 90)
+					(at -10.16 -7.62 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 7.62 270)
 					(length 2.54)
 					(name "~"
 						(effects
@@ -9800,7 +9982,7 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 7.62 270)
+					(at 0 -7.62 90)
 					(length 2.54)
 					(name "~"
 						(effects
@@ -9818,7 +10000,7 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 -7.62 90)
+					(at 2.54 7.62 270)
 					(length 2.54)
 					(name "~"
 						(effects
@@ -9827,7 +10009,61 @@
 							)
 						)
 					)
-					(number "1"
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 7.62 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -7.62 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 12.7 7.62 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -13069,7 +13305,7 @@
 		(uuid "40ef909c-2616-45ad-aefc-a868c07e3f76")
 	)
 	(junction
-		(at 203.2 135.89)
+		(at 187.96 135.89)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4366c887-46f2-4627-8ae3-0d9745a11fc6")
@@ -13111,7 +13347,7 @@
 		(uuid "537d80e5-81fb-47e3-9760-e83c8437296e")
 	)
 	(junction
-		(at 203.2 120.65)
+		(at 187.96 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "546a5b3a-0dd9-4eae-b0f3-5d6adbad3439")
@@ -14178,6 +14414,16 @@
 	)
 	(wire
 		(pts
+			(xy 232.41 118.11) (xy 232.41 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12966639-7519-4221-acd9-b904ecd61ba2")
+	)
+	(wire
+		(pts
 			(xy 78.74 39.37) (xy 78.74 35.56)
 		)
 		(stroke
@@ -14278,7 +14524,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 146.05) (xy 170.18 147.32)
+			(xy 154.94 146.05) (xy 154.94 147.32)
 		)
 		(stroke
 			(width 0)
@@ -15078,7 +15324,7 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 132.08) (xy 186.69 140.97)
+			(xy 171.45 132.08) (xy 171.45 140.97)
 		)
 		(stroke
 			(width 0)
@@ -15378,7 +15624,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 135.89) (xy 224.79 135.89)
+			(xy 187.96 135.89) (xy 209.55 135.89)
 		)
 		(stroke
 			(width 0)
@@ -15568,7 +15814,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 146.05) (xy 171.45 146.05)
+			(xy 154.94 146.05) (xy 156.21 146.05)
 		)
 		(stroke
 			(width 0)
@@ -15678,7 +15924,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 140.97) (xy 165.1 140.97)
+			(xy 147.32 140.97) (xy 149.86 140.97)
 		)
 		(stroke
 			(width 0)
@@ -15898,7 +16144,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 140.97) (xy 171.45 140.97)
+			(xy 154.94 140.97) (xy 156.21 140.97)
 		)
 		(stroke
 			(width 0)
@@ -15935,16 +16181,6 @@
 			(type default)
 		)
 		(uuid "5f7f93a2-ba6f-4b75-a1f8-827535ffadb7")
-	)
-	(wire
-		(pts
-			(xy 234.95 119.38) (xy 234.95 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5f852252-57e8-4513-b7cd-619c3ffbd8af")
 	)
 	(wire
 		(pts
@@ -16628,7 +16864,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 133.35) (xy 203.2 135.89)
+			(xy 187.96 133.35) (xy 187.96 135.89)
 		)
 		(stroke
 			(width 0)
@@ -17208,7 +17444,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 154.94) (xy 203.2 151.13)
+			(xy 187.96 154.94) (xy 187.96 151.13)
 		)
 		(stroke
 			(width 0)
@@ -17288,7 +17524,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 146.05) (xy 186.69 146.05)
+			(xy 172.72 146.05) (xy 171.45 146.05)
 		)
 		(stroke
 			(width 0)
@@ -17438,7 +17674,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 140.97) (xy 203.2 135.89)
+			(xy 187.96 140.97) (xy 187.96 135.89)
 		)
 		(stroke
 			(width 0)
@@ -17948,7 +18184,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 120.65) (xy 203.2 125.73)
+			(xy 187.96 120.65) (xy 187.96 125.73)
 		)
 		(stroke
 			(width 0)
@@ -18018,7 +18254,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 137.16) (xy 234.95 135.89)
+			(xy 229.87 138.43) (xy 229.87 135.89)
 		)
 		(stroke
 			(width 0)
@@ -18498,7 +18734,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 120.65) (xy 224.79 120.65)
+			(xy 187.96 120.65) (xy 209.55 120.65)
 		)
 		(stroke
 			(width 0)
@@ -18638,7 +18874,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 116.84) (xy 203.2 120.65)
+			(xy 187.96 116.84) (xy 187.96 120.65)
 		)
 		(stroke
 			(width 0)
@@ -20942,7 +21178,7 @@
 	)
 	(global_label "Rel_In"
 		(shape input)
-		(at 234.95 137.16 270)
+		(at 229.87 138.43 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -20952,7 +21188,7 @@
 		)
 		(uuid "48790e4f-4497-4323-9c5e-0acd14df69dc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 234.95 145.8904 90)
+			(at 229.87 147.1604 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21008,7 +21244,7 @@
 	)
 	(global_label "Rel_out"
 		(shape output)
-		(at 234.95 119.38 90)
+		(at 232.41 118.11 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -21018,7 +21254,7 @@
 		)
 		(uuid "50e13437-0238-4a4d-a82f-00c26e0a6f60")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 234.95 109.3797 90)
+			(at 232.41 108.1097 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21096,7 +21332,7 @@
 	)
 	(global_label "Relay_ACDC"
 		(shape input)
-		(at 162.56 140.97 180)
+		(at 147.32 140.97 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -21106,7 +21342,7 @@
 		)
 		(uuid "550e4e6e-c82c-4009-82d3-18cdecd40681")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 148.5682 140.97 0)
+			(at 133.3282 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23846,7 +24082,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 203.2 154.94 0)
+		(at 187.96 154.94 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23854,7 +24090,7 @@
 		(dnp no)
 		(uuid "1a4a8c5a-c34a-4f77-ae18-ebf045fb7020")
 		(property "Reference" "#PWR034"
-			(at 203.2 161.29 0)
+			(at 187.96 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23863,7 +24099,7 @@
 			)
 		)
 		(property "Value" "AGND"
-			(at 205.74 156.464 0)
+			(at 190.5 156.464 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23872,7 +24108,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 203.2 154.94 0)
+			(at 187.96 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23881,7 +24117,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 203.2 154.94 0)
+			(at 187.96 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23890,7 +24126,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 203.2 154.94 0)
+			(at 187.96 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24133,7 +24369,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 191.77 146.05 90)
+		(at 176.53 146.05 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -24141,7 +24377,7 @@
 		(dnp no)
 		(uuid "207b9e6a-e0af-45b9-ac6d-78690b3c3781")
 		(property "Reference" "R31"
-			(at 191.77 141.224 90)
+			(at 176.53 141.224 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24149,7 +24385,7 @@
 			)
 		)
 		(property "Value" "2.4k"
-			(at 191.77 143.256 90)
+			(at 176.53 143.256 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24157,7 +24393,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 191.77 147.828 90)
+			(at 176.53 147.828 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24166,7 +24402,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 191.77 146.05 0)
+			(at 176.53 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24175,7 +24411,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 191.77 146.05 0)
+			(at 176.53 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24184,7 +24420,7 @@
 			)
 		)
 		(property "JLCPCB Part #" "C22370006"
-			(at 191.77 146.05 90)
+			(at 176.53 146.05 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27189,7 +27425,7 @@
 	)
 	(symbol
 		(lib_id "Transistor_BJT:SS8050")
-		(at 200.66 146.05 0)
+		(at 185.42 146.05 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -27198,7 +27434,7 @@
 		(fields_autoplaced yes)
 		(uuid "52cfed29-564d-4977-8996-62c4c477b295")
 		(property "Reference" "Q2"
-			(at 205.74 144.7799 0)
+			(at 190.5 144.7799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27207,7 +27443,7 @@
 			)
 		)
 		(property "Value" "SS8050"
-			(at 205.74 147.3199 0)
+			(at 190.5 147.3199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27216,7 +27452,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 205.74 153.416 0)
+			(at 190.5 153.416 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27227,7 +27463,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.secosgmbh.com/datasheet/products/SSMPTransistor/SOT-23/SS8050.pdf"
-			(at 205.74 150.876 0)
+			(at 190.5 150.876 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27237,7 +27473,7 @@
 			)
 		)
 		(property "Description" "General Purpose NPN Transistor, 1.5A Ic, 25V Vce, SOT-23"
-			(at 234.696 148.336 0)
+			(at 219.456 148.336 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27246,7 +27482,7 @@
 			)
 		)
 		(property "JLCPCB Part #" "C2150"
-			(at 200.66 146.05 0)
+			(at 185.42 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27352,7 +27588,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 203.2 116.84 0)
+		(at 187.96 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -27361,7 +27597,7 @@
 		(fields_autoplaced yes)
 		(uuid "555c5eaf-9b2d-4673-aecd-8994e7d43f07")
 		(property "Reference" "#PWR035"
-			(at 203.2 120.65 0)
+			(at 187.96 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27370,7 +27606,7 @@
 			)
 		)
 		(property "Value" "+5VA"
-			(at 205.74 115.5699 0)
+			(at 190.5 115.5699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27379,7 +27615,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 203.2 116.84 0)
+			(at 187.96 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27388,7 +27624,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 203.2 116.84 0)
+			(at 187.96 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27397,7 +27633,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 203.2 116.84 0)
+			(at 187.96 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27412,93 +27648,6 @@
 			(project "Circuit_Design_DO"
 				(path "/23d41458-394d-4af8-a408-3b009231a762"
 					(reference "#PWR035")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Relay:SANYOU_SRD_Form_A")
-		(at 229.87 128.27 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "556e2daa-0807-43a9-b6a5-e409bbc93327")
-		(property "Reference" "K1"
-			(at 238.76 126.9999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SANYOU_SRD_Form_A"
-			(at 238.76 129.5399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Relay_THT:Relay_SPST_SANYOU_SRD_Series_Form_A"
-			(at 238.76 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.sanyourelay.ca/public/products/pdf/SRD.pdf"
-			(at 229.87 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Sanyo SRD relay, Single Pole Miniature Power Relay, Closing Contact"
-			(at 229.87 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "JLCPCB Part #" "C140615"
-			(at 229.87 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "b4267896-406e-4e95-bf96-0c51d67562f6")
-		)
-		(pin "5"
-			(uuid "529ed719-7b84-4f41-b9aa-239513ff2e29")
-		)
-		(pin "3"
-			(uuid "c71adbb9-d18a-42dd-8904-aa03493f2638")
-		)
-		(pin "1"
-			(uuid "02342357-2664-43d2-ac31-c551b8b8057e")
-		)
-		(instances
-			(project "Circuit_Design_DO"
-				(path "/23d41458-394d-4af8-a408-3b009231a762"
-					(reference "K1")
 					(unit 1)
 				)
 			)
@@ -28017,7 +28166,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 186.69 132.08 0)
+		(at 171.45 132.08 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -28026,7 +28175,7 @@
 		(fields_autoplaced yes)
 		(uuid "60bb66f1-0efc-48ac-b587-eaec8c09891e")
 		(property "Reference" "#PWR037"
-			(at 186.69 135.89 0)
+			(at 171.45 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28035,7 +28184,7 @@
 			)
 		)
 		(property "Value" "+5VA"
-			(at 189.23 130.8099 0)
+			(at 173.99 130.8099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28044,7 +28193,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 186.69 132.08 0)
+			(at 171.45 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28053,7 +28202,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 186.69 132.08 0)
+			(at 171.45 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28062,7 +28211,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 186.69 132.08 0)
+			(at 171.45 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28150,7 +28299,7 @@
 	)
 	(symbol
 		(lib_id "Diode:1N4148W")
-		(at 203.2 129.54 270)
+		(at 187.96 129.54 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -28159,7 +28308,7 @@
 		(fields_autoplaced yes)
 		(uuid "6a1680f5-1828-422b-b2b0-73ff52faaec7")
 		(property "Reference" "D4"
-			(at 205.74 128.2699 90)
+			(at 190.5 128.2699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28168,7 +28317,7 @@
 			)
 		)
 		(property "Value" "1N4148W"
-			(at 205.74 130.8099 90)
+			(at 190.5 130.8099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28177,7 +28326,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SOD-123"
-			(at 198.755 129.54 0)
+			(at 183.515 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28186,7 +28335,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/85748/1n4148w.pdf"
-			(at 203.2 129.54 0)
+			(at 187.96 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28195,7 +28344,7 @@
 			)
 		)
 		(property "Description" "75V 0.15A Fast Switching Diode, SOD-123"
-			(at 203.2 129.54 0)
+			(at 187.96 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28204,7 +28353,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 203.2 129.54 0)
+			(at 187.96 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28213,7 +28362,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 203.2 129.54 0)
+			(at 187.96 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28222,7 +28371,7 @@
 			)
 		)
 		(property "JLCPCB Part #" "C2099"
-			(at 203.2 129.54 90)
+			(at 187.96 129.54 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30990,7 +31139,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 167.64 140.97 90)
+		(at 152.4 140.97 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -30999,7 +31148,7 @@
 		(fields_autoplaced yes)
 		(uuid "99ff7031-e9b2-47db-ac1d-0d313054764a")
 		(property "Reference" "R30"
-			(at 167.64 135.89 90)
+			(at 152.4 135.89 90)
 			(effects
 				(font
 					(size 1.016 1.016)
@@ -31007,7 +31156,7 @@
 			)
 		)
 		(property "Value" "2.4k"
-			(at 167.64 138.43 90)
+			(at 152.4 138.43 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31015,7 +31164,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 167.64 140.97 0)
+			(at 152.4 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31024,7 +31173,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 167.64 140.97 0)
+			(at 152.4 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31033,7 +31182,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 167.64 140.97 0)
+			(at 152.4 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31042,7 +31191,7 @@
 			)
 		)
 		(property "JLCPCB Part #" "C22370006"
-			(at 167.64 140.97 90)
+			(at 152.4 140.97 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35037,7 +35186,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 170.18 147.32 0)
+		(at 154.94 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -35046,7 +35195,7 @@
 		(fields_autoplaced yes)
 		(uuid "d49515ce-7e5b-4234-a30c-169ede4d2249")
 		(property "Reference" "#PWR036"
-			(at 170.18 153.67 0)
+			(at 154.94 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35055,7 +35204,7 @@
 			)
 		)
 		(property "Value" "DGND"
-			(at 170.18 152.4 0)
+			(at 154.94 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35063,7 +35212,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 170.18 147.32 0)
+			(at 154.94 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35072,7 +35221,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 170.18 147.32 0)
+			(at 154.94 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35081,7 +35230,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 170.18 147.32 0)
+			(at 154.94 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35168,7 +35317,7 @@
 	)
 	(symbol
 		(lib_id "dk_Optoisolators-Transistor-Photovoltaic-Output:LTV-356T")
-		(at 179.07 143.51 0)
+		(at 163.83 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -35177,7 +35326,7 @@
 		(fields_autoplaced yes)
 		(uuid "d83f5ecf-b48b-43b4-b753-8b099c1e47c6")
 		(property "Reference" "U9"
-			(at 179.07 134.62 0)
+			(at 163.83 134.62 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35185,7 +35334,7 @@
 			)
 		)
 		(property "Value" "LTV-356T"
-			(at 179.07 137.16 0)
+			(at 163.83 137.16 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35193,7 +35342,7 @@
 			)
 		)
 		(property "Footprint" "digikey-footprints:SMD-4_4.4x3.85mm_P2.54mm"
-			(at 184.15 138.43 0)
+			(at 168.91 138.43 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35203,7 +35352,7 @@
 			)
 		)
 		(property "Datasheet" "http://optoelectronics.liteon.com/upload/download/DS70-2001-010/LTV-356T%20series%20201610.pdf"
-			(at 184.15 135.89 90)
+			(at 168.91 135.89 90)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35213,7 +35362,7 @@
 			)
 		)
 		(property "Description" "OPTOISOLATOR 3.75KV TRANS 4-SOP"
-			(at 179.07 143.51 0)
+			(at 163.83 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35222,7 +35371,7 @@
 			)
 		)
 		(property "Digi-Key_PN" "160-1337-1-ND"
-			(at 184.15 133.35 0)
+			(at 168.91 133.35 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35232,7 +35381,7 @@
 			)
 		)
 		(property "MPN" "LTV-356T"
-			(at 184.15 130.81 0)
+			(at 168.91 130.81 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35242,7 +35391,7 @@
 			)
 		)
 		(property "Category" "Isolators"
-			(at 184.15 128.27 0)
+			(at 168.91 128.27 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35252,7 +35401,7 @@
 			)
 		)
 		(property "Family" "Optoisolators - Transistor, Photovoltaic Output"
-			(at 184.15 125.73 0)
+			(at 168.91 125.73 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35262,7 +35411,7 @@
 			)
 		)
 		(property "DK_Datasheet_Link" "http://optoelectronics.liteon.com/upload/download/DS70-2001-010/LTV-356T%20series%20201610.pdf"
-			(at 184.15 123.19 0)
+			(at 168.91 123.19 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35272,7 +35421,7 @@
 			)
 		)
 		(property "DK_Detail_Page" "/product-detail/en/lite-on-inc/LTV-356T/160-1337-1-ND/385805"
-			(at 184.15 120.65 0)
+			(at 168.91 120.65 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35282,7 +35431,7 @@
 			)
 		)
 		(property "Description_1" "OPTOISOLATOR 3.75KV TRANS 4-SOP"
-			(at 184.15 118.11 0)
+			(at 168.91 118.11 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35292,7 +35441,7 @@
 			)
 		)
 		(property "Manufacturer" "Lite-On Inc."
-			(at 184.15 115.57 0)
+			(at 168.91 115.57 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35302,7 +35451,7 @@
 			)
 		)
 		(property "Status" "Active"
-			(at 184.15 113.03 0)
+			(at 168.91 113.03 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -35312,7 +35461,7 @@
 			)
 		)
 		(property "JLCPCB Part #" "C10804"
-			(at 179.07 143.51 0)
+			(at 163.83 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36524,6 +36673,104 @@
 			(project "Circuit_Design_DO"
 				(path "/23d41458-394d-4af8-a408-3b009231a762"
 					(reference "#PWR058")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Relay:G6K-2")
+		(at 219.71 128.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ee9e9147-3b7b-493f-80fe-395dca02a005")
+		(property "Reference" "K3"
+			(at 236.22 126.9999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "G6K-2"
+			(at 236.22 129.5399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F-Y"
+			(at 219.71 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g6k.pdf"
+			(at 219.71 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Miniature 2-pole relay, Single-side Stable"
+			(at 219.71 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "JLCPCB Part #" "C2982926"
+			(at 219.71 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "cdeb85f1-f121-4053-8d92-f2b292b68469")
+		)
+		(pin "6"
+			(uuid "def48c7f-717c-4aa7-8a9c-1d5b36ee4839")
+		)
+		(pin "3"
+			(uuid "5c53a615-89c1-4dee-924f-dfd18b7a1f0f")
+		)
+		(pin "4"
+			(uuid "4050e5ce-7c21-4136-a343-5f78404f4493")
+		)
+		(pin "7"
+			(uuid "25cc2f12-91bb-4179-9869-27179339883b")
+		)
+		(pin "1"
+			(uuid "d16eb59c-6469-42bf-8470-13578758d3ed")
+		)
+		(pin "5"
+			(uuid "749882a2-5373-4130-8552-7ecc9fd4ce5f")
+		)
+		(pin "8"
+			(uuid "996ffff0-a8af-4bb9-a602-396d7450b699")
+		)
+		(instances
+			(project ""
+				(path "/23d41458-394d-4af8-a408-3b009231a762"
+					(reference "K3")
 					(unit 1)
 				)
 			)
