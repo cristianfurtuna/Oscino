@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 1.0,
-          "width": 1.0
+          "drill": 0.3,
+          "height": 0.5,
+          "width": 0.5
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -139,7 +139,7 @@
         "min_track_width": 0.0,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
-        "solder_mask_to_copper_clearance": 0.0,
+        "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
@@ -252,20 +252,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      [
-        "power_pin_not_driven|2057400|266700|1edaef93-d5f0-4a11-b0ef-4255afb9e37a|00000000-0000-0000-0000-000000000000|/23d41458-394d-4af8-a408-3b009231a762|/23d41458-394d-4af8-a408-3b009231a762|",
-        ""
-      ],
-      [
-        "power_pin_not_driven|2082800|381000|ebf5519b-6af5-4c29-b53f-8bc7d9566e84|00000000-0000-0000-0000-000000000000|/23d41458-394d-4af8-a408-3b009231a762|/23d41458-394d-4af8-a408-3b009231a762|",
-        ""
-      ],
-      [
-        "power_pin_not_driven|2146300|330200|e302ff81-43e0-48aa-a0a5-f19674f9cddf|00000000-0000-0000-0000-000000000000|/23d41458-394d-4af8-a408-3b009231a762|/23d41458-394d-4af8-a408-3b009231a762|",
-        ""
-      ]
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -527,7 +514,7 @@
       "idf": "",
       "netlist": "",
       "plot": "D:/Proiecte_Laboratoare_Facultate/APM/PCB_design_normal/Outputs/",
-      "pos_files": "",
+      "pos_files": "D:/Proiecte_Laboratoare_Facultate/APM/PCB_design_normal/Outputs/",
       "specctra_dsn": "",
       "step": "",
       "svg": "",
