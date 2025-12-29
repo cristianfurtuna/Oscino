@@ -12,7 +12,7 @@ Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capab
 ## Elaborare etape
 - [x] Alegere componente<br>
 - [x] Schemă electrică<br>
-- [ ] Cablaj<br>
+- [x] Cablaj<br>
 - [ ] Prototip<br>
 - [ ] Programare uC<br>
 - [ ] Programare UI<br>
@@ -24,3 +24,4 @@ Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capab
 - [ ] STM32H743ZIT6 -> preț: $15.23<br>
 - [ ] MIMXRT1062DVL6B -> preț: $12.00<br>
 - [x] ATMEGA 2560 -> preț: $10.56<br>
+## Asamblarea PCB-ului la fabrică este mult prea scumpă pentru a finaliza cablajul (TBD asamblare manuală)
