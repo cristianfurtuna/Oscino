@@ -65,14 +65,14 @@ void readADC_packed(uint8_t channel)
 
     for (uint8_t i = 0; i < 10; i++)
     {
-        uint8_t bit = (sample >> i) & 1;
+        uint8_t bit = (sample >> i) & 1; // extract each bit
 
-        pack_buf |= (bit << pack_bits);
+        pack_buf |= (bit << pack_bits); // insert into pack_buf in current position
         pack_bits++;
 
         if (pack_bits == 8)
         {
-            uart_putchar(pack_buf, stdout);
+            uart_putchar(pack_buf, stdout); // once we have 8 bits, send one byte over UART and reset buffer
             pack_buf = 0;
             pack_bits = 0;
         }

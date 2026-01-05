@@ -44,12 +44,12 @@ int main(void)
 		sleep_disable();
 		uart_putchar(0xAA, stdout);		  // SYNC BYTE 1
 		uart_putchar(0x55, stdout);		  // SYNC BYTE 2
-		for (uint16_t i = 0; i < 64; i++) // capture 64 samples per batch
+		for (uint16_t i = 0; i < 64; i++) // capture 64 samples per batch; 64 x 10 = 640bits = 80bytes
 		{
 			readADC_packed(0);
 			//_delay_us(50);
 		}
-		ADC_pack_flush();
+		ADC_pack_flush(); // send any leftover bits and reset the buffer after sending a batch
 
 		//_delay_ms(500);
 		//   uint16_t raw = ADC_read_pin(A15);

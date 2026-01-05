@@ -1,282 +1,131 @@
-# import serial
-# import numpy as np
-# import pyqtgraph as pg
-# from pyqtgraph.Qt import QtWidgets, QtCore
-# import sys
-
-# # ------------------------------
-# # Serial Config
-# # ------------------------------
-# ser = serial.Serial("COM5", 2000000, timeout=0)
-
-# SYNC = b"\xAA\x55"
-# SYNC_LEN = 2
-# SAMPLES_PER_BATCH = 64
-# BITS_PER_SAMPLE = 10
-# BYTES_PER_BATCH = (SAMPLES_PER_BATCH * BITS_PER_SAMPLE) // 8  # = 80
-
-# WINDOW = 2000  # plotted window size (averaged points)
-# data_window = np.zeros(WINDOW, dtype=np.uint16)
-# write_index = 0
-
-# bit_buffer = 0
-# bits_in_buffer = 0
-# buffer = bytearray()
-
-# # Averaging factor: tune this for responsiveness vs detail
-# AVG_FACTOR = 200  # average every 200 samples → ~1 ksps plotted
-# avg_accum = []
-
-# # ------------------------------
-# # Bit unpacking
-# # ------------------------------
-# def unpack_bits(bytes_in):
-#     global bit_buffer, bits_in_buffer
-#     samples = []
-#     for byte in bytes_in:
-#         bit_buffer |= (byte << bits_in_buffer)
-#         bits_in_buffer += 8
-#         while bits_in_buffer >= 10:
-#             samples.append(bit_buffer & 0x3FF)
-#             bit_buffer >>= 10
-#             bits_in_buffer -= 10
-#     return samples
-
-# # ------------------------------
-# # PyQtGraph Setup
-# # ------------------------------
-# app = QtWidgets.QApplication(sys.argv)
-# pg.setConfigOptions(antialias=True, background="w", foreground="k")
-
-# win = pg.GraphicsLayoutWidget(show=True, title="Live MCP3008 Data")
-# win.resize(900, 500)
-# plot = win.addPlot(title="ADC Live Stream")
-# curve = plot.plot(pen=pg.mkPen(width=2))
-
-# plot.setYRange(0, 1023)
-# plot.setXRange(0, WINDOW)
-
-# # ------------------------------
-# # Update function
-# # ------------------------------
-# def update():
-#     global buffer, write_index, data_window, avg_accum
-
-#     samples = []
-
-#     buffer.extend(ser.read(16384))
-
-#     # Drop backlog if too large
-#     if len(buffer) > 16384 * 4:
-#         buffer.clear()
-
-#     # Process only the latest batch
-#     while len(buffer) >= SYNC_LEN + BYTES_PER_BATCH:
-#         idx = buffer.find(SYNC)
-#         if idx == -1:
-#             break
-#         del buffer[:idx + SYNC_LEN]
-#         if len(buffer) < BYTES_PER_BATCH:
-#             break
-#         batch = buffer[:BYTES_PER_BATCH]
-#         del buffer[:BYTES_PER_BATCH]
-#         samples = unpack_bits(batch)
-
-#     # Only use the last batch's samples for plotting
-#     if not samples:
-#         return
-
-#     # Average groups of samples
-#     for s in samples:
-#         avg_accum.append(s)
-#         if len(avg_accum) == AVG_FACTOR:
-#             avg_val = int(np.mean(avg_accum))
-#             avg_accum.clear()
-#             data_window[write_index] = avg_val
-#             write_index = (write_index + 1) % WINDOW
-
-#     # Plot newest averaged data
-#     curve.setData(np.roll(data_window, -write_index))
-
-# # ------------------------------
-# # Timer for updates
-# # ------------------------------
-# timer = QtCore.QTimer()
-# timer.timeout.connect(update)
-# timer.start(0)
-
-# # ------------------------------
-# # Start
-# # ------------------------------
-# if __name__ == "__main__":
-#     sys.exit(app.exec_())
-
-import serial
+import sys
 import numpy as np
-import pyqtgraph as pg
-from pyqtgraph.Qt import QtWidgets, QtCore
-import sys, time
+import matplotlib
+matplotlib.use('Qt5Agg')
 
-# ------------------------------
-# Serial Config
-# ------------------------------
-ser = serial.Serial("COM5", 2000000, timeout=0)
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
 
-SYNC = b"\xAA\x55"
-SYNC_LEN = 2
-SAMPLES_PER_BATCH = 64
-BITS_PER_SAMPLE = 10
-BYTES_PER_BATCH = (SAMPLES_PER_BATCH * BITS_PER_SAMPLE) // 8  # = 80
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QPushButton, QVBoxLayout,
+    QLabel, QLineEdit, QMessageBox, QHBoxLayout, QComboBox, QDoubleSpinBox,
+    QColorDialog
+)
 
-# ------------------------------
-# Plotting Config
-# ------------------------------
-SAMPLE_RATE = 200000       # ADC samples/sec
-AVG_FACTOR  = 200          # samples averaged into one plotted point
-DT          = AVG_FACTOR / SAMPLE_RATE  # seconds per plotted point
 
-WINDOW_POINTS = 2000       # number of averaged points stored
-TIME_SPAN    = WINDOW_POINTS * DT  # seconds of history shown
+class MplCanvas(FigureCanvas):
+    def __init__(self):
+        self.fig = Figure(figsize=(5, 4), dpi=100, facecolor='#fafafa')
+        self.axes = self.fig.add_subplot(111)
+        self.axes.set_facecolor('#000000')
+        self.axes.grid(True, which='major', linestyle='-', linewidth=0.75, color='gray')
+        self.axes.minorticks_on()
+        self.axes.grid(True, which='minor', linestyle=':', linewidth=0.45, color='lightgray')
+        self.axes.set_title("Waveform", fontsize=14)
+        self.axes.set_xlabel("Time (s)")
+        self.axes.set_ylabel("Voltage (V)")
+        super().__init__(self.fig)
 
-voltage_window = np.zeros(WINDOW_POINTS, dtype=np.float32)
-time_window    = np.zeros(WINDOW_POINTS, dtype=np.float32)
-write_index    = 0
 
-bit_buffer = 0
-bits_in_buffer = 0
-buffer = bytearray()
-avg_accum = []
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
 
-start_time = time.time()
+        self.time = None
+        self.voltage = None
+        self.waveform_color = 'yellow'
 
-# ------------------------------
-# Bit unpacking
-# ------------------------------
-def unpack_bits(bytes_in):
-    global bit_buffer, bits_in_buffer
-    samples = []
-    for byte in bytes_in:
-        bit_buffer |= (byte << bits_in_buffer)
-        bits_in_buffer += 8
-        while bits_in_buffer >= 10:
-            samples.append(bit_buffer & 0x3FF)
-            bit_buffer >>= 10
-            bits_in_buffer -= 10
-    return samples
+        self._setup_ui()
 
-# ------------------------------
-# PyQtGraph Setup
-# ------------------------------
-app = QtWidgets.QApplication(sys.argv)
-pg.setConfigOptions(antialias=True, background="w", foreground="k")
+    def _setup_ui(self):
+        # Channel selection
+        self.channel_label = QLabel("Channel:")
+        self.channel_select = QComboBox()
+        self.channel_select.addItems(["1", "2", "3", "4"])
 
-win  = pg.GraphicsLayoutWidget(show=True, title="Live MCP3008 Voltage")
-win.resize(900, 500)
-plot = win.addPlot(title="Voltage vs Time (Real)")
-curve = plot.plot(pen=pg.mkPen(width=2))
+        # Timebase
+        self.timebase_label = QLabel("Timebase (s/div):")
+        self.timebase_input = QDoubleSpinBox()
+        self.timebase_input.setRange(1e-9, 10)
+        self.timebase_input.setDecimals(9)
+        self.timebase_input.setValue(200e-6)
 
-plot.setYRange(0, 5.0)
+        # Voltage scale
+        self.voltage_label = QLabel("Voltage Scale (V/div):")
+        self.voltage_input = QDoubleSpinBox()
+        self.voltage_input.setRange(1e-3, 100)
+        self.voltage_input.setDecimals(3)
+        self.voltage_input.setValue(1.0)
 
-# ------------------------------
-# Update function
-# ------------------------------
-def update():
-    global buffer, write_index, voltage_window, time_window, avg_accum
+        # Buttons
+        self.get_data_button = QPushButton("Generate Waveform")
+        self.get_data_button.clicked.connect(self.generate_fake_waveform)
 
-    samples = []
+        self.color_button = QPushButton("Select Color")
+        self.color_button.clicked.connect(self.select_waveform_color)
 
-    buffer.extend(ser.read(16384))
+        # Layout for settings
+        settings_layout = QVBoxLayout()
+        settings_layout.addWidget(self.channel_label)
+        settings_layout.addWidget(self.channel_select)
+        settings_layout.addWidget(self.timebase_label)
+        settings_layout.addWidget(self.timebase_input)
+        settings_layout.addWidget(self.voltage_label)
+        settings_layout.addWidget(self.voltage_input)
+        settings_layout.addStretch(1)
 
-    # Drop backlog if too large
-    if len(buffer) > 16384 * 4:
-        buffer.clear()
+        # Buttons layout
+        buttons_layout = QHBoxLayout()
+        buttons_layout.addWidget(self.get_data_button)
+        buttons_layout.addWidget(self.color_button)
 
-    # Consume to the newest batch
-    while len(buffer) >= SYNC_LEN + BYTES_PER_BATCH:
-        idx = buffer.find(SYNC)
-        if idx == -1:
-            break
-        del buffer[:idx + SYNC_LEN]
-        if len(buffer) < BYTES_PER_BATCH:
-            break
-        batch = buffer[:BYTES_PER_BATCH]
-        del buffer[:BYTES_PER_BATCH]
-        samples = unpack_bits(batch)
+        # Canvas
+        self.canvas = MplCanvas()
 
-    if not samples:
-        return
+        # Combine layouts
+        main_layout = QHBoxLayout()
+        main_layout.addLayout(settings_layout)
+        main_layout.addWidget(self.canvas)
 
-    # Average and convert to voltage
-    for s in samples:
-        avg_accum.append(s)
-        if len(avg_accum) == AVG_FACTOR:
-            avg_val = np.mean(avg_accum)
-            avg_accum.clear()
-            voltage = (avg_val / 1023.0) * 5.0
-            elapsed = time.time() - start_time
-            voltage_window[write_index] = voltage
-            time_window[write_index]    = elapsed
-            write_index = (write_index + 1) % WINDOW_POINTS
+        container_layout = QVBoxLayout()
+        container_layout.addLayout(main_layout)
+        container_layout.addLayout(buttons_layout)
 
-    # Roll buffers so newest data is at the end
-    x = np.roll(time_window, -write_index)
-    y = np.roll(voltage_window, -write_index)
+        container = QWidget()
+        container.setLayout(container_layout)
+        self.setCentralWidget(container)
 
-    # Plot latest data
-    curve.setData(x, y)
+        self.setMinimumSize(900, 500)
+        self.setWindowTitle("Nibiru Oscilloscope")
 
-    # Keep X-axis showing last TIME_SPAN seconds
-    if x[-1] > 0:
-        plot.setXRange(x[-1] - TIME_SPAN, x[-1])
+    def generate_fake_waveform(self):
+        #Generate a waveform for GUI test
+        t = np.linspace(0, 1, 1000)
+        freq = 5
+        self.time = t
+        self.voltage = np.sin(2 * np.pi * freq * t)
 
-# ------------------------------
-# Timer for updates
-# ------------------------------
-timer = QtCore.QTimer()
-timer.timeout.connect(update)
-timer.start(0)
+        self.plot_waveform()
 
-# ------------------------------
-# Start
-# ------------------------------
+    def plot_waveform(self):
+        self.canvas.axes.clear()
+        self.canvas.axes.plot(self.time, self.voltage, color=self.waveform_color, linewidth=1.0)
+        self.canvas.axes.set_title("Waveform")
+        self.canvas.axes.set_xlabel("Time (s)")
+        self.canvas.axes.set_ylabel("Voltage (V)")
+        self.canvas.axes.grid(True)
+        self.canvas.draw()
+
+    def select_waveform_color(self):
+        color = QColorDialog.getColor()
+        if color.isValid():
+            self.waveform_color = color.name()
+            if self.time is not None:
+                self.plot_waveform()
+
+
 if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
     sys.exit(app.exec_())
-
-
-
-#Program test afisare biti receptionati in consola
-
-
-
-# import serial
-
-# ser = serial.Serial('COM5', 2000000, timeout=1)
-
-# # Persistent buffers
-# bit_buffer = 0
-# bits_in_buffer = 0
-
-# def unpack_data(data_bytes, bit_buffer=0, bits_in_buffer=0):
-#     samples = []
-#     for byte in data_bytes:
-#         bit_buffer |= (byte << bits_in_buffer)
-#         bits_in_buffer += 8
-#         while bits_in_buffer >= 10:
-#             samples.append(bit_buffer & 0x3FF)  # get 10-bit sample
-#             bit_buffer >>= 10
-#             bits_in_buffer -= 10
-#     return samples, bit_buffer, bits_in_buffer
-
-# while True:
-#     data = ser.read(1024)
-#     if not data:
-#         continue
-
-#     print("Received", len(data), "bytes")
-#     print(data[:20])  # first 20 bytes for inspection
-
-#     samples, bit_buffer, bits_in_buffer = unpack_data(data, bit_buffer, bits_in_buffer)
-
-#     if samples:
-#         print("Unpacked samples:", samples[:10])  # first 10 samples
-
