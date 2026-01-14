@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2026.1.14)  14 JAN 2026 15:13
+This is LuaHBTeX, Version 1.17.1 (MiKTeX 24.1) (format=lualatex 2026.1.14)  14 JAN 2026 19:35
  restricted system commands enabled.
 **Doc.tex
 (./Doc.tex
@@ -1615,11 +1615,11 @@ guage=dflt;slant=0.2;+tlig;"
 \glo@main@file=\write6
 
 \openout6 = Doc.glo
-Package glossaries Info: Writing glossary file Doc.glo on input line 41.
+Package glossaries Info: Writing glossary file Doc.glo on input line 42.
 \glo@acronym@file=\write7
 
 \openout7 = Doc.acn
-Package glossaries Info: Writing glossary file Doc.acn on input line 41.
+Package glossaries Info: Writing glossary file Doc.acn on input line 42.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1627,96 +1627,96 @@ Package csquotes Info: Redefining alias 'default' -> 'romanian'.
  (./Doc.aux)
 \openout1 = Doc.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 188.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 189.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-88.
+89.
 
 (C:/Users/crist/AppData/Local/Programs/MiKTeX/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 188.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 188.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 188.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 188.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 188.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 188.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 188.
-LaTeX Font Info:    Redeclaring math accent \check on input line 188.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 188.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 188.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 188.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 188.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 188.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 189.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 189.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 189.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 189.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 189.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 189.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 189.
+LaTeX Font Info:    Redeclaring math accent \check on input line 189.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 189.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 189.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 189.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 189.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 188.
+(Font)              `operators' in the math version `normal' on input line 189.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/UTSans-Regular.otf(0)/m/n on input l
-ine 188.
+ine 189.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 188.
+(Font)              `operators' in the math version `bold' on input line 189.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/UTSans-Regular.otf(0)/m/n on input 
-line 188.
+line 189.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/UTSans-Regular.otf(0)/m/n --> TU/UTSans-Regular.otf(
-0)/m/n on input line 188.
+0)/m/n on input line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/UTSans-Regular.otf(0)/m/it on input
- line 188.
+ line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/UTSans-Regular.otf(0)/b/n on input 
-line 188.
+line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 188.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 188.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 189.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/UTSans-Regular.otf(0)/m/n --> TU/UTSans-Regular.otf(
-0)/b/n on input line 188.
+0)/b/n on input line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/UTSans-Regular.otf(0)/b/it on inpu
-t line 188.
+t line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 188.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 189.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 188.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 189.
 
 (C:/Users/crist/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mk
 ii
@@ -1801,7 +1801,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 188.
+Package hyperref Info: Link coloring OFF on input line 189.
 (./Doc.out) (./Doc.out)
 \@outlinefile=\write8
 
@@ -1827,15 +1827,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Doc.bbl' found.
  (./Doc.bbl)
-Package biblatex Info: Reference section=0 on input line 188.
-Package biblatex Info: Reference segment=0 on input line 188.
+Package biblatex Info: Reference section=0 on input line 189.
+Package biblatex Info: Reference segment=0 on input line 189.
 
 warning  (file Anexe/Prima pagina.pdf) (pdf inclusion): PDF inclusion: found PDF
  version '1.7', but at most version '1.5' allowed
-<Anexe/Prima pagina.pdf, id=33, 597.55244pt x 845.0772pt>
+<Anexe/Prima pagina.pdf, id=30, 597.55244pt x 845.0772pt>
 File: Anexe/Prima pagina.pdf Graphic file (type pdf)
 <use Anexe/Prima pagina.pdf>
-Package luatex.def Info: Anexe/Prima pagina.pdf  used on input line 192.
+Package luatex.def Info: Anexe/Prima pagina.pdf  used on input line 193.
 (luatex.def)             Requested size: 597.55098pt x 845.07513pt.
 
 warning  (file Anexe/Prima pagina.pdf) (pdf inclusion): PDF inclusion: found PDF
@@ -1843,30 +1843,30 @@ warning  (file Anexe/Prima pagina.pdf) (pdf inclusion): PDF inclusion: found PDF
 
 warning  (file Anexe/Prima pagina.pdf) (pdf inclusion): PDF inclusion: found PDF
  version '1.7', but at most version '1.5' allowed
-<Anexe/Prima pagina.pdf, id=35, page=1, 597.55244pt x 845.0772pt>
+<Anexe/Prima pagina.pdf, id=32, page=1, 597.55244pt x 845.0772pt>
 File: Anexe/Prima pagina.pdf Graphic file (type pdf)
 <use Anexe/Prima pagina.pdf, page 1>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 192.
+Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 193.
 
 (luatex.def)             Requested size: 597.55098pt x 845.07513pt.
 File: Anexe/Prima pagina.pdf Graphic file (type pdf)
 <use Anexe/Prima pagina.pdf, page 1>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 192.
+Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 193.
 
 (luatex.def)             Requested size: 597.57832pt x 845.11382pt.
 File: Anexe/Prima pagina.pdf Graphic file (type pdf)
 <use Anexe/Prima pagina.pdf, page 1>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 192.
+Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 193.
 
 (luatex.def)             Requested size: 597.57832pt x 845.11382pt.
 File: Anexe/Prima pagina.pdf Graphic file (type pdf)
 <use Anexe/Prima pagina.pdf, page 1>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 192.
+Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 193.
 
 (luatex.def)             Requested size: 597.57832pt x 845.11382pt.
 File: Anexe/Prima pagina.pdf Graphic file (type pdf)
 <use Anexe/Prima pagina.pdf, page 1>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 192.
+Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 193.
 
 (luatex.def)             Requested size: 597.57832pt x 845.11382pt.
 [1
@@ -1875,70 +1875,7 @@ Package luatex.def Info: Anexe/Prima pagina.pdf , page1 used on input line 192.
 \openout5 = Doc.ist
 
 {C:/Users/crist/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}<./Anexe/Prima 
-pagina.pdf>]
-warning  (file Anexe/Prima pagina.pdf) (pdf inclusion): PDF inclusion: found PDF
- version '1.7', but at most version '1.5' allowed
-<Anexe/Prima pagina.pdf, id=69, page=2, 597.55244pt x 845.0772pt>
-File: Anexe/Prima pagina.pdf Graphic file (type pdf)
-<use Anexe/Prima pagina.pdf, page 2>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page2 used on input line 192.
-
-(luatex.def)             Requested size: 597.57832pt x 845.11382pt.
-File: Anexe/Prima pagina.pdf Graphic file (type pdf)
-<use Anexe/Prima pagina.pdf, page 2>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page2 used on input line 192.
-
-(luatex.def)             Requested size: 597.57832pt x 845.11382pt.
-File: Anexe/Prima pagina.pdf Graphic file (type pdf)
-<use Anexe/Prima pagina.pdf, page 2>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page2 used on input line 192.
-
-(luatex.def)             Requested size: 597.57832pt x 845.11382pt.
-[2
-
-<./Anexe/Prima pagina.pdf>]
-warning  (file Anexe/Prima pagina.pdf) (pdf inclusion): PDF inclusion: found PDF
- version '1.7', but at most version '1.5' allowed
-<Anexe/Prima pagina.pdf, id=117, page=3, 597.55244pt x 845.0772pt>
-File: Anexe/Prima pagina.pdf Graphic file (type pdf)
-<use Anexe/Prima pagina.pdf, page 3>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page3 used on input line 192.
-
-(luatex.def)             Requested size: 597.57832pt x 845.11382pt.
-File: Anexe/Prima pagina.pdf Graphic file (type pdf)
-<use Anexe/Prima pagina.pdf, page 3>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page3 used on input line 192.
-
-(luatex.def)             Requested size: 597.57832pt x 845.11382pt.
-File: Anexe/Prima pagina.pdf Graphic file (type pdf)
-<use Anexe/Prima pagina.pdf, page 3>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page3 used on input line 192.
-
-(luatex.def)             Requested size: 597.57832pt x 845.11382pt.
-[3
-
-<./Anexe/Prima pagina.pdf>]
-warning  (file Anexe/Prima pagina.pdf) (pdf inclusion): PDF inclusion: found PDF
- version '1.7', but at most version '1.5' allowed
-<Anexe/Prima pagina.pdf, id=265, page=4, 597.55244pt x 845.0772pt>
-File: Anexe/Prima pagina.pdf Graphic file (type pdf)
-<use Anexe/Prima pagina.pdf, page 4>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page4 used on input line 192.
-
-(luatex.def)             Requested size: 597.57832pt x 845.11382pt.
-File: Anexe/Prima pagina.pdf Graphic file (type pdf)
-<use Anexe/Prima pagina.pdf, page 4>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page4 used on input line 192.
-
-(luatex.def)             Requested size: 597.57832pt x 845.11382pt.
-File: Anexe/Prima pagina.pdf Graphic file (type pdf)
-<use Anexe/Prima pagina.pdf, page 4>
-Package luatex.def Info: Anexe/Prima pagina.pdf , page4 used on input line 192.
-
-(luatex.def)             Requested size: 597.57832pt x 845.11382pt.
-[4
-
-<./Anexe/Prima pagina.pdf>] (./Doc.toc
+pagina.pdf>] (./Doc.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
 
 (C:/Users/crist/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsa.fd
@@ -1953,61 +1890,81 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 \openout9 = Doc.toc
 
-[5
-
-] (./Doc.lof)
-\tf@lof=\write10
-
-\openout10 = Doc.lof
- [6
-
-] (./Doc.lot)
-\tf@lot=\write11
-
-\openout11 = Doc.lot
- [7]
-No file Doc.acr.
-[8]
-Capitolul 1.
-
-LaTeX Warning: Citation 'radiation_sensor_types' on page 9 undefined on input l
-ine 224.
-
-
-LaTeX Warning: Citation 'gaseours_detectors' on page 9 undefined on input line 
-224.
-
-[9
+[2
 
 ]
-Capitolul 2.
-<./Images/theory_seu_illustration.png, id=440, 2448.89906pt x 611.28375pt>
-File: ./Images/theory_seu_illustration.png Graphic file (type png)
-<use ./Images/theory_seu_illustration.png>
-Package luatex.def Info: ./Images/theory_seu_illustration.png  used on input li
-ne 229.
-(luatex.def)             Requested size: 483.69687pt x 120.7342pt.
-Package pgfplots info on input line 274: Using 'lua backend=false' for axis: x 
-coord trafo unsupported.
-Package pgfplots info on input line 283: Using 'lua backend=false' for axis: x 
-coord trafo unsupported.
+Capitolul 1.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 202.
 
 
-LaTeX Warning: Empty bibliography on input line 296.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 222.
 
-[10
+[3
 
-<./Images/theory_seu_illustration.png>] [11]
-Overfull \hbox (4.82103pt too wide) in paragraph at lines 301--302
-[]\TU/UTSans-Regular.otf(0)/m/n/12 Re-zu-ma-tul re-pre-zintă o scurtă pre-zen-
-tare a con-ți-nu-tu-lui lu-cră-rii de li-cență, evi-den-ți-ind obiec-
+]
+<ADC.png, id=76, 360.59718pt x 286.82156pt>
+File: ADC.png Graphic file (type png)
+<use ADC.png>
+Package luatex.def Info: ADC.png  used on input line 241.
+(luatex.def)             Requested size: 483.69687pt x 384.73714pt.
+<./images/Amplificator.png, id=77, 383.93437pt x 398.99063pt>
+File: ./images/Amplificator.png Graphic file (type png)
+<use ./images/Amplificator.png>
+Package luatex.def Info: ./images/Amplificator.png  used on input line 248.
+(luatex.def)             Requested size: 483.69687pt x 502.70041pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./images/Atmega.png, id=78, 539.76656pt x 599.99156pt>
+File: ./images/Atmega.png Graphic file (type png)
+<use ./images/Atmega.png>
+Package luatex.def Info: ./images/Atmega.png  used on input line 255.
+(luatex.def)             Requested size: 483.69687pt x 537.68033pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./images/Intrare.png, id=79, 580.41844pt x 219.06844pt>
+File: ./images/Intrare.png Graphic file (type png)
+<use ./images/Intrare.png>
+Package luatex.def Info: ./images/Intrare.png  used on input line 262.
+(luatex.def)             Requested size: 483.69687pt x 182.56548pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./images/PCB.png, id=80, 790.45313pt x 459.96844pt>
+File: ./images/PCB.png Graphic file (type png)
+<use ./images/PCB.png>
+Package luatex.def Info: ./images/PCB.png  used on input line 269.
+(luatex.def)             Requested size: 483.69687pt x 281.46468pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./images/PCB_asamblat.jpeg, id=81, 1046.91125pt x 559.08875pt>
+File: ./images/PCB_asamblat.jpeg Graphic file (type jpg)
+<use ./images/PCB_asamblat.jpeg>
+Package luatex.def Info: ./images/PCB_asamblat.jpeg  used on input line 276.
+(luatex.def)             Requested size: 483.69687pt x 258.31003pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (4.302pt too wide) in paragraph at lines 286--291
+[][] 
  []
 
-[12
+[4<./ADC.png>] [5<./images/Amplificator.png>] [6<./images/Atmega.png>] [7<./imag
+es/Intrare.png><./images/PCB.png>] [8<./images/PCB_asamblat.jpeg>]
+Capitolul 2.
 
-] [13
+Package glossaries Warning: No \printglossary or \printglossaries found. 
+(Remove \makeglossaries if you don't want any glossaries.) 
+This document will not have a glossary.
+
+[9
 
 ] (./Doc.aux)
  ***********
@@ -2019,7 +1976,7 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Doc.out' has not changed.
-(rerunfilecheck)             Checksum: 622C88CCDF4E741957DCDA3097D179EB;907.
+(rerunfilecheck)             Checksum: 9D7DC937C605895E15E290B15A5CC245;940.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Doc
@@ -2031,21 +1988,20 @@ Package logreq Info: Writing requests to 'Doc.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 55649 strings out of 476497
+ 54895 strings out of 476497
  125161,2848258 words of node,token memory allocated
- 837 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 14 attribute, 113 glue_spe
-c, 9 attribute_list, 2 write nodes
-   avail lists: 1:4,2:5528,3:1578,4:288,5:256,6:36,7:3139,8:4,9:798,10:13,11:308
-
- 76430 multiletter control sequences out of 65536+600000
- 69 fonts using 4362599 bytes
- 84i,19n,89p,2516b,2713s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 855 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 16 attribute, 113 glue_spe
+c, 10 attribute_list, 2 write, 2 pdf_action nodes
+   avail lists: 1:3,2:1037,3:220,4:94,5:346,6:59,7:3736,8:4,9:368,10:6,11:367
+ 75703 multiletter control sequences out of 65536+600000
+ 48 fonts using 3021447 bytes
+ 84i,17n,89p,2516b,1847s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <./Fonts/UTSans-Bold.otf><./Fonts/UTSans-Regular.otf><C:/Users/crist/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on Doc.pdf (13 pages, 447261 bytes).
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Doc.pdf (9 pages, 353148 bytes).
 
-PDF statistics: 479 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 138 PDF objects out of 1000 (max. 8388607)
  24 named destinations out of 1000 (max. 131072)
- 72 words of extra memory for PDF output out of 10000 (max. 100000000)
+ 64 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -1,8 +1,7 @@
 \babel@toc {romanian}{}\relax 
-\contentsline {chapter}{Lista figurilor și tabelelor}{6}{chapter*.2}%
-\contentsline {chapter}{Listă de acronime}{8}{chapter*.2}%
-\contentsline {chapter}{\numberline {1}Introducere}{9}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Context și motivație}{9}{section.1.1}%
-\contentsline {chapter}{\numberline {2}Fundamente teoretice}{10}{chapter.2}%
-\contentsline {chapter}{Rezumat}{12}{chapter*.6}%
-\contentsline {chapter}{Abstract}{13}{chapter*.7}%
+\contentsline {chapter}{\numberline {1}Specificații hardware}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Componente alese \\}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Specificații finale \\}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Design hardware și pcb}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Analiză economică}{4}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Specificații software}{9}{chapter.2}%
