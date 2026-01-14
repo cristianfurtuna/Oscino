@@ -1,0 +1,8 @@
+\babel@toc {romanian}{}\relax 
+\contentsline {chapter}{Lista figurilor și tabelelor}{6}{chapter*.2}%
+\contentsline {chapter}{Listă de acronime}{8}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Introducere}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Context și motivație}{9}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Fundamente teoretice}{10}{chapter.2}%
+\contentsline {chapter}{Rezumat}{12}{chapter*.6}%
+\contentsline {chapter}{Abstract}{13}{chapter*.7}%
