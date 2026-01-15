@@ -39,9 +39,9 @@ int main(void)
 	uint8_t duty = 0;
 	while (1)
 	{
-		sleep_enable();
-		sleep_cpu();
-		sleep_disable();
+		// sleep_enable();
+		// sleep_cpu();
+		// sleep_disable();
 		uart_putchar(0xAA, stdout);		  // SYNC BYTE 1
 		uart_putchar(0x55, stdout);		  // SYNC BYTE 2
 		for (uint16_t i = 0; i < 64; i++) // capture 64 samples per batch; 64 x 10 = 640bits = 80bytes
