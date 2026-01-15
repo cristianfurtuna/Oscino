@@ -183,14 +183,16 @@ ItalicFeatures={FakeSlant=0.2},
 
 % --------------------- DOCUMENT ---------------------
 % ------- UPDATE HERE WITH CORRESPONDING VALUES - NAME & TITLE
-\newcommand{\studentname}{Nume Prenume}
-\newcommand{\projecttitle}{Titlul lucrării}
+\newcommand{\studentname}{Furtună Cristian și Iordache Denis-Ninel}
+\newcommand{\projecttitle}{Osciloscop Digital cu Izolare Galvanica}
 
 \begin{document}
 	
 	% ------- THIS DOCUMENT IS MADE SEPARATELY AND ADDED HERE
 	% ------- NO NEED TO MODIFY HERE - JUST UNCOMMENT
-	\includepdf[pages=-, pagecommand={\thispagestyle{plainfooter}}] {Anexe/Prima pagina.pdf}
+
+	\includepdf[pages=-, pagecommand={\thispagestyle{empty}}] {Anexe/Prima pagina.pdf}
+
 	
 	% ------- THE FOLLOWING PAGES ARE AUTOMATED - NO NEED TO MODIFY
 	\chapter*{Cuprins}
@@ -225,7 +227,7 @@ ItalicFeatures={FakeSlant=0.2},
 		\item Backwards compatibility cu Arduino IDE (maparea pinilor este realizată în stil Arduino Mega)
 		\item Frecvență maximă a semnalului de măsurat circa 300kHz (în funcție de configurarea ADC-ului, limită impusă de amplificatorul de intrare)
 		\item Alimentare unică prin USB-C de 5V
-		\item Transfer de date prin USB-C
+		\item Transfer de date prin USB-C (Max. 2Mb/s)
 		\item Intrare BNC
 		\item Cuplaj AC/DC
 		\item Encodere digitale pentru control al afișajului (baza de timp și scară de tensiune)
@@ -235,6 +237,14 @@ ItalicFeatures={FakeSlant=0.2},
 	\end{itemize}
 	
 	\section{Design hardware și pcb}
+	Ideea acestui proiect este să creeze o izolare galvanică între partea analogică și digitală și să măsoare diferențial tensiunile aplicate la intrare astfel încât să protejeze echipamentul cu care 
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[clip, trim=0cm 15.2cm 14.5cm 1.25cm, width=\columnwidth]{Osciloscop_Schematic.pdf}
+		\caption{Schema etajului de intrare.}%
+		\label{fig:Intrare}
+	\end{figure}
 	
 	\begin{figure}[h!]
 		\centering
@@ -256,13 +266,7 @@ ItalicFeatures={FakeSlant=0.2},
 		\caption{Configurația microcontrolerului ATmega.}%
 		\label{fig:Atmega}
 	\end{figure}
-	
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\columnwidth]{Intrare.png}
-		\caption{Schema etajului de intrare.}%
-		\label{fig:Intrare}
-	\end{figure}
+
 	
 	\begin{figure}[h!]
 		\centering
@@ -271,6 +275,8 @@ ItalicFeatures={FakeSlant=0.2},
 		\label{fig:PCB}
 	\end{figure}
 	
+	
+	După cum se
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\columnwidth]{PCB_asamblat.jpeg}
