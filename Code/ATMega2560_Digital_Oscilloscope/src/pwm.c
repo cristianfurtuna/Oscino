@@ -80,7 +80,8 @@ void PWM_init(void) {
     /* Timer1 */
     TCCR1A = (1<<WGM11);
     TCCR1B = (1<<WGM13) | (1<<WGM12) | (1<<CS11) | (1<<CS10); /* presc 64 */
-    ICR1 = 0x00FF;
+    //ICR1 = 0x00FF;
+    ICR1 = 0x04EF; //200Hz
 
     /* Timer3 */
     TCCR3A = (1<<WGM31);

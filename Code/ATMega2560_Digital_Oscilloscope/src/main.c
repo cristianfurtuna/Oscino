@@ -14,6 +14,9 @@
 #include "adc.h"
 #include "spi.h"
 
+#define PWM_FREQ 200 // Hz
+#define BATCH_SIZE 600
+
 volatile uint8_t button_pressed = 1;
 
 int main(void)
@@ -26,8 +29,10 @@ int main(void)
 	uart_init(MYUBRR);
 	SPI_MasterInit();
 	// SPI_SlaveInit();
+	millis_init();
 
 	PWM_init();
+	PWM_attach(D11);
 	ADC_init(ADC_REF_AVCC, ADC_PRESCALER_128);
 
 	set_sleep_mode(SLEEP_MODE_IDLE); // Set sleep mode to power down
@@ -36,20 +41,53 @@ int main(void)
 	EIMSK |= (1 << INT0);  // Enable INT0
 	sei();				   // Enable global interrupts
 
-	uint8_t duty = 0;
+	// uint8_t duty = 0;
+
 	while (1)
 	{
 		// sleep_enable();
 		// sleep_cpu();
 		// sleep_disable();
-		uart_putchar(0xAA, stdout);		  // SYNC BYTE 1
-		uart_putchar(0x55, stdout);		  // SYNC BYTE 2
-		for (uint16_t i = 0; i < 64; i++) // capture 64 samples per batch; 64 x 10 = 640bits = 80bytes
+		static uint32_t last_pwm_update = 0;
+
+		if (millis_now() - last_pwm_update >= 50)
+		{
+			uint16_t pot = ADC_read_pin(A0); // 0–1023
+			uint32_t duty = (uint32_t)pot * PWM_get_max(D11) / 1023;
+
+			PWM_write_raw(D11, duty); // hardware PWM
+			last_pwm_update = millis_now();
+		}
+
+		// uart_putchar(0xAA, stdout);		  // SYNC BYTE 1
+		// uart_putchar(0x55, stdout);		  // SYNC BYTE 2
+		cli();
+		while (!(UCSR0A & (1 << UDRE0)))
+			;
+		UDR0 = 0xAA;
+		while (!(UCSR0A & (1 << UDRE0)))
+			;
+		UDR0 = 0x55;
+		/*for (uint16_t i = 0; i < 64; i++) // capture 64 samples per batch; 64 x 10 = 640bits = 80bytes
 		{
 			readADC_packed(0);
 			//_delay_us(50);
 		}
-		ADC_pack_flush(); // send any leftover bits and reset the buffer after sending a batch
+		ADC_pack_flush(); // send any leftover bits and reset the buffer after sending a batch */
+
+		for (uint16_t i = 0; i < BATCH_SIZE; i++)
+		{
+			// Citim de la MCP3008 (Canal 0) pe 8 biți
+			uint8_t val = SPI_Read_MCP3008_8bit(0);
+
+			// Trimitem byte-ul pe Serial
+			while (!(UCSR0A & (1 << UDRE0)))
+				;		// Așteptăm buffer gol
+			UDR0 = val; // Trimitem data
+		}
+
+		sei();
+		_delay_us(100);
 
 		//_delay_ms(500);
 		//   uint16_t raw = ADC_read_pin(A15);
@@ -91,7 +129,7 @@ int main(void)
 	}
 }
 
-ISR(INT0_vect) // interrupt priority hardcoded (hi: 0 lo:7) (external interrupts)
+/*ISR(INT0_vect) // interrupt priority hardcoded (hi: 0 lo:7) (external interrupts)
 {
 	if (GPIO_read(D21))
 		button_pressed = 1;
@@ -102,4 +140,4 @@ ISR(INT0_vect) // interrupt priority hardcoded (hi: 0 lo:7) (external interrupts
 ISR(TIMER1_COMPA_vect)
 {
 	GPIO_toggle(D11);
-}
+} */

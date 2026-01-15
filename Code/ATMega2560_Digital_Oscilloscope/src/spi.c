@@ -11,8 +11,9 @@ void SPI_MasterInit(void)
     // Set MOSI, SS and SCK output, all others input
     DDRB |= (1 << PB2) | (1 << PB1) | (1 << PB0); // MOSI - PB2, SCK - PB1
     // Enable SPI, Master, set clock rate fck/16 (was 1 << SPR0)
-    PORTB |= (1 << PB0);             // Keep board in Master mode
-    SPCR = (1 << SPE) | (1 << MSTR); // SPCR - SPI control register
+    PORTB |= (1 << PB0);                           // Keep board in Master mode
+    SPCR = (1 << SPE) | (1 << MSTR) | (1 << SPR0); // SPCR - SPI control register
+    SPSR |= (1 << SPI2X);
 }
 
 uint8_t SPI_MasterTransmit(uint8_t data)
@@ -52,7 +53,7 @@ uint8_t SPI_SlaveReceive(void)
     return ((high & 0x03) << 8) | low;                          // data received across two bytes, 1 byte SPI not enough
 } */
 
-void readADC_packed(uint8_t channel)
+/*void readADC_packed(uint8_t channel)
 {
     PORTB &= ~(1 << PB0);                                       // Set CS low
     SPI_MasterTransmit(0x01);                                   // Send start bit to ADC
@@ -87,4 +88,38 @@ void ADC_pack_flush(void)
         pack_buf = 0;
         pack_bits = 0;
     }
+}  */
+
+// Funcție optimizată: face toată tranzacția "inline"
+uint8_t SPI_Read_MCP3008_8bit(uint8_t channel)
+{
+    // 1. CS Low
+    PORTB &= ~(1 << PB0);
+
+    // 2. Trimite Start Bit (0x01)
+    SPDR = 0x01;
+    while (!(SPSR & (1 << SPIF)))
+        ;
+
+    // 3. Trimite Config (Single Ended) -> Primește High Byte
+    SPDR = 0x80 | (channel << 4);
+    while (!(SPSR & (1 << SPIF)))
+        ;
+    uint8_t high = SPDR;
+
+    // 4. Trimite Dummy -> Primește Low Byte
+    SPDR = 0x00;
+    while (!(SPSR & (1 << SPIF)))
+        ;
+    uint8_t low = SPDR;
+
+    // 5. CS High
+    PORTB |= (1 << PB0);
+
+    // 6. Conversie rapidă:
+    // Combinăm cei 10 biți: ((high & 0x03) << 8) | low
+    // Shiftăm dreapta cu 2 pentru a păstra cei mai importanți 8 biți (0-255)
+    uint16_t result = ((high & 0x03) << 8) | low;
+
+    return (uint8_t)(result >> 2);
 }
