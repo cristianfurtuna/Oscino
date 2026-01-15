@@ -13,12 +13,12 @@ Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capab
 - [x] Alegere componente<br>
 - [x] Schemă electrică<br>
 - [x] Cablaj<br>
-- [ ] Prototip<br>
-- [ ] Programare uC<br>
-- [ ] Programare UI<br>
-- [ ] Testare<br>
-- [ ] Elaborare documentație<br>
-- [ ] Realizare prezentare PowerPoint<br>
+- [x] Prototip<br>
+- [x] Programare uC<br>
+- [x] Programare UI<br>
+- [x] Testare<br>
+- [x] Elaborare documentație<br>
+- [x] Realizare prezentare PowerPoint<br>
 ## Alegerea unui microcontroller potrivit
 - [ ] C8051F120 -> preț: $11.22<br>
 - [ ] STM32H743ZIT6 -> preț: $15.23<br>
