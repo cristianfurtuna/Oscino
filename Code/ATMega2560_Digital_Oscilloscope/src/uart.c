@@ -3,94 +3,119 @@
 #include <stdio.h>
 #include "uart.h"
 
-static volatile uint8_t rxbuf[UART_RX_BUFSIZE];
-static volatile uint8_t rx_head = 0;   // next write
-static volatile uint8_t rx_tail = 0;   // next read
+static volatile uint8_t rxbuf[UART_RX_BUFSIZE]; // buffer used for storing data until it is processed
+static volatile uint8_t rx_head = 0;            // next write
+static volatile uint8_t rx_tail = 0;            // next read
 
-static inline uint8_t _rb_next(uint8_t i) {
+static inline uint8_t _rb_next(uint8_t i)
+{
     uint8_t n = i + 1;
     return (n >= UART_RX_BUFSIZE) ? 0 : n;
 }
 
-uint8_t uart_available(void) {
+// Display number of bytes left in the buffer
+uint8_t uart_available(void)
+{
     uint8_t h = rx_head, t = rx_tail;
-    if (h >= t) return (uint8_t)(h - t);
+    if (h >= t)
+        return (uint8_t)(h - t);
     return (uint8_t)(UART_RX_BUFSIZE - (t - h));
 }
 
-int uart_peek_byte(void) {
-    if (!uart_available()) return -1;
+int uart_peek_byte(void)
+{
+    if (!uart_available())
+        return -1;
     return rxbuf[rx_tail];
 }
 
-int uart_read_byte(void) {
-    if (!uart_available()) return -1;
-    uint8_t b = rxbuf[rx_tail];
-    rx_tail = _rb_next(rx_tail);
+// Take a bit out of the buffer
+int uart_read_byte(void)
+{
+    if (!uart_available())
+        return -1;               // Empty buffer
+    uint8_t b = rxbuf[rx_tail];  // Read tail first
+    rx_tail = _rb_next(rx_tail); // Next bit
     return b;
 }
 
-void uart_flush_rx(void) {
-    uint8_t sreg = SREG; cli();
-    rx_head = rx_tail = 0;
-    SREG = sreg;
+// Empty the buffer
+void uart_flush_rx(void)
+{
+    uint8_t sreg = SREG;
+    cli();                 // Opreste intreruperile
+    rx_head = rx_tail = 0; // Reseteaza indicii
+    SREG = sreg;           // Reporneste intreruperile
+    // Ne asiguram ca nu vin intreruperi in timp ce resetam valorile
 }
 
-int uart_putchar(char c, FILE *stream) {
-    if (c == '\n') uart_putchar('\r', stream);   // add CR for terminal
-    while (!(UCSR0A & (1 << UDRE0)));           // wait for TX buffer empty
+int uart_putchar(char c, FILE *stream)
+{
+    if (c == '\n')
+        uart_putchar('\r', stream); // add CR for terminal
+    while (!(UCSR0A & (1 << UDRE0)))
+        ; // wait for TX buffer empty
     UDR0 = c;
     return 0;
 }
 
 /* ---------- RX (stdio) ---------- */
 /* Blocking getchar for scanf/getchar; echoes are optional (off by default). */
-int uart_getchar(FILE *stream) {
+int uart_getchar(FILE *stream)
+{
     (void)stream;
     int ch;
-    while ((ch = uart_read_byte()) < 0) {
+    while ((ch = uart_read_byte()) < 0)
+    {
         /* spin until a byte arrives; low CPU usage if you sleep elsewhere */
     }
     /* Normalize CR to LF if a terminal sends CR only */
-    if (ch == '\r') ch = '\n';
+    if (ch == '\r')
+        ch = '\n';
     return ch;
 }
 
 /* ---------- Config / init ---------- */
-static void uart_config (unsigned int ubrr) {
-    UBRR0H = (unsigned char)(ubrr >> 8);				   // Baud rate register high byte
-    UBRR0L = (unsigned char)(ubrr);				  		   // Baud rate register low byte					
-    UCSR0A |= (1 << U2X0);								   //Double speed (reduces baud error)
-    UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0);  //Enable RX, TX and RX complete interrupt
-    UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); 			   // 8 data bits, no parity, 1 stop bit
+static void uart_config(unsigned int ubrr)
+{
+    UBRR0H = (unsigned char)(ubrr >> 8);                  // Baud rate register high byte
+    UBRR0L = (unsigned char)(ubrr);                       // Baud rate register low byte
+    UCSR0A |= (1 << U2X0);                                // Double speed (reduces baud error)
+    UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0); // Enable RX, TX and RX complete interrupt
+    UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);               // 8 data bits, no parity, 1 stop bit
 }
 
 /* stdio FILEs */
 FILE uart_output = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
-FILE uart_input  = FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
+FILE uart_input = FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
 
-void uart_init(unsigned int ubrr) {
-   cli();
+void uart_init(unsigned int ubrr)
+{
+    cli();
 
     uart_config(ubrr);
     uart_flush_rx();
 
     /* Hook stdio */
     stdout = &uart_output;
-    stdin  = &uart_input;
+    stdin = &uart_input;
 
-	sei();
+    sei();
 }
 
 /* ---------- ISR ---------- */
-ISR(USART0_RX_vect) {
-    uint8_t data = UDR0;                // read ASAP to clear RXC
+ISR(USART0_RX_vect)
+{
+    uint8_t data = UDR0; // read ASAP to clear RXC
     uint8_t next = _rb_next(rx_head);
 
-    if (next != rx_tail) {
+    if (next != rx_tail)
+    {
         rxbuf[rx_head] = data;
         rx_head = next;
-    } else {
+    }
+    else
+    {
         /* Buffer full: drop the byte (or advance tail to overwrite oldest) */
         /* Overwrite-oldest policy (uncomment if preferred):
            rxbuf[rx_head] = data;

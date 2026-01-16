@@ -1,4 +1,4 @@
-#define BAUD 2000000UL // desired BAUD rate (was 115200)
+#define BAUD 2000000UL // desired BAUD rate
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -23,14 +23,13 @@ int main(void)
 {
 
 	GPIO_set_output(ONBOARD_LED); // onboard LED
-	GPIO_set_output(D28);		  // D28 as output
 	GPIO_set_output(D11);		  // D11 as output
 
 	uart_init(MYUBRR);
 	SPI_MasterInit();
-	// SPI_SlaveInit();
 	millis_init();
 
+	// Generate a square signal on pin D11
 	PWM_init();
 	PWM_attach(D11);
 	ADC_init(ADC_REF_AVCC, ADC_PRESCALER_128);
@@ -41,13 +40,9 @@ int main(void)
 	EIMSK |= (1 << INT0);  // Enable INT0
 	sei();				   // Enable global interrupts
 
-	// uint8_t duty = 0;
-
 	while (1)
 	{
-		// sleep_enable();
-		// sleep_cpu();
-		// sleep_disable();
+		// Modify duty cycle of pwm with a potentiometer
 		static uint32_t last_pwm_update = 0;
 
 		if (millis_now() - last_pwm_update >= 50)
@@ -59,85 +54,30 @@ int main(void)
 			last_pwm_update = millis_now();
 		}
 
-		// uart_putchar(0xAA, stdout);		  // SYNC BYTE 1
-		// uart_putchar(0x55, stdout);		  // SYNC BYTE 2
-		cli();
+		cli(); // clear interrupts for full focus on sending ADC data
+		// Send batch sync bytes 0xAA start byte, 0x55 stop byte, useful for python script
 		while (!(UCSR0A & (1 << UDRE0)))
 			;
 		UDR0 = 0xAA;
 		while (!(UCSR0A & (1 << UDRE0)))
 			;
 		UDR0 = 0x55;
-		/*for (uint16_t i = 0; i < 64; i++) // capture 64 samples per batch; 64 x 10 = 640bits = 80bytes
-		{
-			readADC_packed(0);
-			//_delay_us(50);
-		}
-		ADC_pack_flush(); // send any leftover bits and reset the buffer after sending a batch */
 
+		// Sending BATCH_SIZE = 600 bytes; total number of bits sent = estimated 6000 bits per for
+		// Adding the start and stop bits to a byte -> 10 bits per batch
+		// 6020 if we take into consideration the sync bytes for a batch
 		for (uint16_t i = 0; i < BATCH_SIZE; i++)
 		{
-			// Citim de la MCP3008 (Canal 0) pe 8 biți
+			// Read channel 0 from ADC
 			uint8_t val = SPI_Read_MCP3008_8bit(0);
 
-			// Trimitem byte-ul pe Serial
+			// Send byte through UART
 			while (!(UCSR0A & (1 << UDRE0)))
-				;		// Așteptăm buffer gol
-			UDR0 = val; // Trimitem data
+				;		// Wait for buffer to empty
+			UDR0 = val; // Send the data
 		}
 
-		sei();
+		sei(); // enable interrupts
 		_delay_us(100);
-
-		//_delay_ms(500);
-		//   uint16_t raw = ADC_read_pin(A15);
-		//   uint16_t mv = ADC_to_millivolts(raw, 5000);
-		//    Test SPI communication
-		// uint16_t spi_data = readADC(0); // read channel 0
-		// printf("Data received: %u\r\n", spi_data);
-		//_delay_ms(500);
-		/*_delay_ms(500);
-		printf("A15: %u (≈ %u mV)\r\n", raw, mv);
-		_delay_ms(500);
-		printf("Button state: %d \n", button_pressed);
-		if (!button_pressed)
-		{
-			PWM_attach(D11);
-			for (duty = 0; duty < 100; duty++)
-			{
-				PWM_write_percent(D11, duty); // duty cycle
-				_delay_ms(5);
-			}
-
-			GPIO_set_high(D28);
-			printf("LED on \n");
-			_delay_ms(500);
-
-			// Turn LED off
-			for (duty = 100; duty > 0; duty--)
-			{
-				PWM_write_percent(D11, duty); // duty cycle
-				_delay_ms(5);
-			}
-			PWM_write_percent(D11, 0); // duty cycle
-			PWM_detach(D11);
-
-			GPIO_set_low(D28);
-			printf("LED off \n");
-			_delay_ms(500);
-		} */
 	}
 }
-
-/*ISR(INT0_vect) // interrupt priority hardcoded (hi: 0 lo:7) (external interrupts)
-{
-	if (GPIO_read(D21))
-		button_pressed = 1;
-	else
-		button_pressed = 0;
-}
-
-ISR(TIMER1_COMPA_vect)
-{
-	GPIO_toggle(D11);
-} */

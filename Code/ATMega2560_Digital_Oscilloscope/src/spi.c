@@ -3,9 +3,6 @@
 #include "spi.h"
 #include "uart.h"
 
-static uint8_t pack_buf = 0;
-static uint8_t pack_bits = 0;
-
 void SPI_MasterInit(void)
 {
     // Set MOSI, SS and SCK output, all others input
@@ -42,84 +39,35 @@ uint8_t SPI_SlaveReceive(void)
     return SPDR; // SPDR - SPI data register
 }
 
-/*uint16_t readADC(uint8_t channel)
-{
-    PORTB &= ~(1 << PB0);                                       // Set CS low
-    SPI_MasterTransmit(0x01);                                   // Send start bit to ADC
-    uint8_t high = SPI_MasterTransmit((0x80 | (channel << 4))); // config bits: 1 S C2 C1 C0 x x x
-                                                                // 1 -single ended mode; S -start bit; C2 C1 C0 - channel select
-    uint8_t low = SPI_MasterTransmit(0x00);                     // low byte
-    PORTB |= (1 << PB0);                                        // Set CS high
-    return ((high & 0x03) << 8) | low;                          // data received across two bytes, 1 byte SPI not enough
-} */
-
-/*void readADC_packed(uint8_t channel)
-{
-    PORTB &= ~(1 << PB0);                                       // Set CS low
-    SPI_MasterTransmit(0x01);                                   // Send start bit to ADC
-    uint8_t high = SPI_MasterTransmit((0x80 | (channel << 4))); // config bits: 1 S C2 C1 C0 x x x
-                                                                // 1 -single ended mode; S -start bit; C2 C1 C0 - channel select
-    uint8_t low = SPI_MasterTransmit(0x00);                     // low byte
-    PORTB |= (1 << PB0);                                        // Set CS high
-
-    uint16_t sample = ((high & 0x03) << 8) | low;
-
-    for (uint8_t i = 0; i < 10; i++)
-    {
-        uint8_t bit = (sample >> i) & 1; // extract each bit
-
-        pack_buf |= (bit << pack_bits); // insert into pack_buf in current position
-        pack_bits++;
-
-        if (pack_bits == 8)
-        {
-            uart_putchar(pack_buf, stdout); // once we have 8 bits, send one byte over UART and reset buffer
-            pack_buf = 0;
-            pack_bits = 0;
-        }
-    }
-}
-
-void ADC_pack_flush(void)
-{
-    if (pack_bits > 0)
-    {
-        uart_putchar(pack_buf, stdout);
-        pack_buf = 0;
-        pack_bits = 0;
-    }
-}  */
-
-// Funcție optimizată: face toată tranzacția "inline"
+// Read data from ADC
 uint8_t SPI_Read_MCP3008_8bit(uint8_t channel)
 {
-    // 1. CS Low
+    // CS Low
     PORTB &= ~(1 << PB0);
 
-    // 2. Trimite Start Bit (0x01)
+    // Send Start Byte (0x01)
     SPDR = 0x01;
     while (!(SPSR & (1 << SPIF)))
         ;
 
-    // 3. Trimite Config (Single Ended) -> Primește High Byte
+    // Send config byte si select channel
     SPDR = 0x80 | (channel << 4);
     while (!(SPSR & (1 << SPIF)))
         ;
-    uint8_t high = SPDR;
+    uint8_t high = SPDR; // MSB data
 
-    // 4. Trimite Dummy -> Primește Low Byte
+    // Send dummy byte pentru a primii ultimii biti ai conversiei
     SPDR = 0x00;
     while (!(SPSR & (1 << SPIF)))
         ;
-    uint8_t low = SPDR;
+    uint8_t low = SPDR; // LSB data
 
-    // 5. CS High
+    // CS High
     PORTB |= (1 << PB0);
 
-    // 6. Conversie rapidă:
-    // Combinăm cei 10 biți: ((high & 0x03) << 8) | low
-    // Shiftăm dreapta cu 2 pentru a păstra cei mai importanți 8 biți (0-255)
+    // Concatenam high si low
     uint16_t result = ((high & 0x03) << 8) | low;
-
+    // Shiftare la dreapta pentru a pastra doar 1 byte
+    // La frecvente mari, de regula ultimii 2 biti sunt zgomotosi
     return (uint8_t)(result >> 2);
 }
