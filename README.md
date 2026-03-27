@@ -1,14 +1,16 @@
-# OSCINO - Osciloscop digital interfațat USB
+# OSCINO - Osciloscop digital interfațat USB cu intrare izolată galvanic
 Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capabil să achiziționeze, să proceseze și să afișeze semnale electrice în timp real pe PC.
 ## Specificații
-- in: 5V DC USB;<br>
-- out: 1 Mbit/s serial UART data;<br>
-- sampling rate: >= 2 ksa/s;<br>
+- in: 5V DC USB-C;<br>
+- out: >2 Mbit/s serial UART data;<br>
+- Arduino Mega compatible pinout
+- sampling rate: ~300 ksa/s;<br>
 - AC/DC coupling;<br>
-- 0...25V input range using different attenuation stages;<br>
-- transformer for higher input voltages;<br>
-- Windows UI Interface/Python script;<br>
-- timebase.<br>
+- Galvanically Isolated Frontend;<br>
+- 0...230V AC/DC input range using different attenuation stages;<br>
+- Attenuator for High Input Voltages;<br>
+- UI for PC use;<br>
+- timebase and synchronisation (trigger).<br>
 ## Elaborare etape
 - [x] Alegere componente<br>
 - [x] Schemă electrică<br>
