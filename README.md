@@ -6,7 +6,7 @@ Proiectul nostru constă într-un osciloscop digital interfațat prin USB, capab
 - Arduino Mega compatible pinout
 - sampling rate: ~300 ksa/s;<br>
 - AC/DC coupling;<br>
-- Galvanically Isolated Frontend;<br>
+- Galvanically Isolated Frontend with Differential Signal Aquisition;<br>
 - 0...230V AC/DC input range using different attenuation stages;<br>
 - Attenuator for High Input Voltages;<br>
 - UI for PC use;<br>
